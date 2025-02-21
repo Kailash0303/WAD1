@@ -1,0 +1,228 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2f3d4f;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Keep sidebar fixed */
+    top: 0;
+    left: -250px; /* Initially hidden */
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0; /* Visible when active */
+}
+
+.sidebar-header h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links li {
+    margin: 20px 0;
+}
+
+.sidebar-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-links li a:hover {
+    background-color: #4b5b6c;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #fff;
+    margin-left: 0; /* No margin initially */
+    transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is active, shift main content */
+.sidebar.active ~ .main-content {
+    margin-left: 250px; /* Shift content when sidebar is visible */
+}
+
+header h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #2f3d4f;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #023047;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2f3d4f;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navlog {
+    display: flex;
+    gap: 100px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links ul li {
+    margin-left: 20px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    background-color: #4b5b6c;
+}
+
+/* Cart Icon */
+.nav-profile-logo i {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.nav-profile-logo i:hover {
+    transform: scale(1.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links ul li {
+        margin: 10px 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .nav-links ul li a {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,136 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+}
+
+/* Body and Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+    height: 100vh;
+    background-image: url(https://img.freepik.com/free-vector/abstract-grunge-texture-soft-blue-background-design_1055-19624.jpg?semt=ais_hybrid);
+
+    }
+
+.container{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav{
+    font-size: 2rem;
+    margin: 50px 0 0 50px ; 
+
+}
+
+.nav a{
+    color: #2f3d4f;
+}
+
+/* Login Container */
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login Form */
+.login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Form Heading */
+.login-form h2 {
+    font-size: 28px;
+    color: #2f3d4f;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.input-group input:focus {
+    border-color: #2f3d4f;
+    outline: none;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2f3d4f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #4b5b6c;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: #2f3d4f;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+
+.logo{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 25px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-form {
+        width: 80%;
+    }
+}

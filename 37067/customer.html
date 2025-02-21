@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navlog">
+            <i class="fa-brands fa-amazon"></i>
+        </div>
+
+        <div class="nav-links">
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Details</a></li>
+                <li><a href="#">Accounts</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-profile-logo">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+
+    <!-- Customer Registration Form -->
+    <div class="form-container">
+        <h2>Customer Registration</h2>
+        <form id="registration-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter your address" rows="4" required></textarea>
+
+            <button type="submit">Register</button>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+        <button id="view-button" onclick="viewData()">View Registered Customers</button>
+    </div>
+
+    <!-- View Registered Customers -->
+    <div id="view-container" class="view-container" style="display: none;">
+        <h3>Registered Customers</h3>
+        <ul id="customer-list"></ul>
+    </div>
+
+    <script src="customer.js"></script>
+</body>
+
+</html>

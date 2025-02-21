@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navlog">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <i class="fa-brands fa-amazon"></i>
+        </div>
+
+        <div class="nav-links">
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" id="details-button">Details</a></li> <!-- Added Details Button -->
+                <li><a href="#">Accounts</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-profile-logo">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin</h3>
+            </div>
+            <ul class="sidebar-links">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="order.html">Orders</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="customer.html">Customers</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Welcome to Admin Dashboard</h1>
+            </header>
+
+            <div class="cards-container">
+                <div class="card" style="background-color: #ecd18c;">
+                    <h3>Total Sales</h3>
+                    <p>$35,000</p>
+                </div>
+                <div class="card" style="background-color: #f4a261;">
+                    <h3>Orders Completed</h3>
+                    <p>1,245</p>
+                </div>
+                <div class="card" style="background-color: #e76f51;">
+                    <h3>Pending Orders</h3>
+                    <p>450</p>
+                </div>
+                <div class="card" style="background-color: #43aa8b;">
+                    <h3>New Customers</h3>
+                    <p>312</p>
+                </div>
+                <div class="card" style="background-color: #588157;">
+                    <h3>Stock Left</h3>
+                    <p>2,150 items</p>
+                </div>
+                <div class="card" style="background-color: #669bbc;">
+                    <h3>Total Reviews</h3>
+                    <p>10,000</p>
+                </div>
+            </div>
+
+            <!-- Registered Customers View (Initially Hidden) -->
+            <div id="view-container" class="view-container" style="display: none;">
+                <h3>Registered Customers</h3>
+                <ul id="customer-list"></ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle the sidebar visibility
+        const menuIcon = document.getElementById('menu-icon');
+        const sidebar = document.getElementById('sidebar');
+
+        menuIcon.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // When "Details" button is clicked, show registered customers
+        document.getElementById("details-button").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            // Show the registered customers view
+            document.getElementById("view-container").style.display = 'block';
+
+            // Display the registered customers
+            let customers = JSON.parse(localStorage.getItem('customers')) || [];
+
+            if (customers.length === 0) {
+                alert("No customers registered.");
+                return;
+            }
+
+            const customerList = document.getElementById("customer-list");
+            customerList.innerHTML = ''; // Clear existing list
+
+            customers.forEach(customer => {
+                let li = document.createElement("li");
+                li.innerHTML = `<span>Name: ${customer.name}</span><span>Email: ${customer.email}</span><span>Phone: ${customer.phone}</span><span>Address: ${customer.address}</span>`;
+                customerList.appendChild(li);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
